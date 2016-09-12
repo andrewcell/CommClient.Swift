@@ -8,11 +8,18 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTextFieldDelegate {
 
+    @IBOutlet weak var idbox: NSTextField!
+    @IBOutlet weak var pwbox: NSTextField!
+    @IBOutlet weak var hostbox: NSTextField!
+    @IBOutlet weak var btnLogin: NSButton!
+    @IBOutlet weak var sslbox: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        idbox.delegate = self;
+        pwbox.delegate = self;
         // Do any additional setup after loading the view.
     }
 
@@ -22,6 +29,18 @@ class ViewController: NSViewController {
         }
     }
 
+ 
+    
+    @IBAction func loginClick(sender: AnyObject) {
+        NSLog("Login Button Triggered")
+        NSLog(self.idbox.stringValue)
+        
+    }
+    struct logininformation {
+        let id: String
+        let pw: String
+        let host: String
+    }
 
 }
 
